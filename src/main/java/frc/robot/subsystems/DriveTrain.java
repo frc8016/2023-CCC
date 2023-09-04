@@ -4,15 +4,13 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.util.WPILibVersion;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
- 
+
 public class DriveTrain extends SubsystemBase {
   /** Creates a new DriveBase. */
   public DriveTrain() {
@@ -26,13 +24,8 @@ public class DriveTrain extends SubsystemBase {
 
     DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_right);
 
-    
-
     Joystick m_controller = new Joystick(0);
-
-   
   }
-  
 
   /* (non-Javadoc)
    * @see edu.wpi.first.wpilibj2.command.Subsystem#periodic()
@@ -41,7 +34,5 @@ public class DriveTrain extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     DifferentialDrive.arcadeDriveIK(0, 0, false);
-    
-
   }
 }
