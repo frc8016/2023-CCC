@@ -28,29 +28,26 @@ public final class Constants {
   }
 
   public static class DriveTrainConstants {
-
     public static final int frontLeftMotorID = 3;
     public static final int frontRightMotorID = 4;
     public static final int backLeftMotorID = 1;
     public static final int backRightMotorID = 2;
   }
-public static class ShooterConstants {
-  public static final int frontShooterId = 1;
-  public static final int backShooterId = 2;
 
-  public static final double frontShooterSpeed = .5;
-  public static final double frontShooterSpeedReverse = -.5;
+  public static class ShooterConstants {
+    public static final int frontShooterId = 1;
+    public static final int backShooterId = 2;
 
-  public static final double backIndexSpeed = .5;
-  public static final double backIndexSpeedReverse = -.5;
+    public static final double frontShooterSpeed = .5;
+    public static final double frontShooterSpeedReverse = -.5;
 
-  public static final double innerSpeed = .5;
-  public static final double outerSpeed = .5;
+    public static final double backIndexSpeed = .5;
+    public static final double backIndexSpeedReverse = -.5;
 
-  public static final double innerSpeedReversed = -.3;
-  public static final double outerSpeedReversed = -.3;
+    public static final double innerSpeed = .5;
+    public static final double outerSpeed = .5;
 
-
-}
-
+    public static final double innerSpeedReversed = -.3;
+    public static final double outerSpeedReversed = -.3;
+  }
 }
