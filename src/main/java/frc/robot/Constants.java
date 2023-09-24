@@ -56,8 +56,7 @@ public final class Constants {
     public static final int RELETIVE_ENCODER_A = 9;
     public static final int RELETIVE_ENCODER_B = 7;
     public static final int ABSOLUTE_ENCODER_PORT = 8;
-    public static final double reletiveEncoderDistancePerPulse = 360/1024;
+    public static final double reletiveEncoderDistancePerPulse = 360 / 1024;
     public static final double dutyCycleEncoderDistancePerRotation = 360;
-    
   }
 }
