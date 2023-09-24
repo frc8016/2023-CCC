@@ -14,6 +14,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -46,6 +47,8 @@ public class RobotContainer {
   private final CommandXboxController m_CommandXboxController = new CommandXboxController(1);
 
   private final Shooter m_Shooter = new Shooter();
+
+  private final Arm m_Arm = new Arm();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -117,6 +120,10 @@ public class RobotContainer {
                         ShooterConstants.innerSpeedReversed, ShooterConstants.outerSpeed),
                 () -> m_Shooter.ShootCone(0, 0),
                 m_Shooter));
+
+    m_CommandXboxController
+        .b()
+        .whileTrue(new StartEndCommand(() -> m_Arm.moveArm(.1), () -> m_Arm.moveArm(0), m_Arm));
   }
 
   /**

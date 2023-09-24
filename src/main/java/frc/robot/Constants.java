@@ -35,8 +35,8 @@ public final class Constants {
   }
 
   public static class ShooterConstants {
-    public static final int frontShooterId = 1;
-    public static final int backShooterId = 2;
+    public static final int frontShooterId = 7;
+    public static final int backShooterId = 8;
 
     public static final double frontShooterSpeed = .5;
     public static final double frontShooterSpeedReverse = -.5;
@@ -49,5 +49,15 @@ public final class Constants {
 
     public static final double innerSpeedReversed = -.3;
     public static final double outerSpeedReversed = -.3;
+  }
+
+  public static class ArmConstants {
+    public static final double armSpeed = .1;
+    public static final int RELETIVE_ENCODER_A = 9;
+    public static final int RELETIVE_ENCODER_B = 7;
+    public static final int ABSOLUTE_ENCODER_PORT = 8;
+    public static final double reletiveEncoderDistancePerPulse = 360/1024;
+    public static final double dutyCycleEncoderDistancePerRotation = 360;
+    
   }
 }
