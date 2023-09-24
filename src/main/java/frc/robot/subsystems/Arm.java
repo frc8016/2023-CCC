@@ -16,12 +16,12 @@ public class Arm extends SubsystemBase {
   private final DutyCycleEncoder m_absoluteEncoder =
       new DutyCycleEncoder(ArmConstants.ABSOLUTE_ENCODER_PORT);
 
-  public Arm(){
+  public Arm() {
     m_reletivEncoder.setDistancePerPulse(ArmConstants.reletiveEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
-
   }
-      public void moveArm(double armSpeed) {
+
+  public void moveArm(double armSpeed) {
     armLeft.set(armSpeed);
     armRight.set(-armSpeed);
   }
@@ -37,9 +37,10 @@ public class Arm extends SubsystemBase {
     SmartDashboard.putNumber("Absolute arm distance", distance);
     return distance;
   }
+
   @Override
   public void periodic() {
-      getAbsoluteDistance();
-      getRelitiveDistance();
+    getAbsoluteDistance();
+    getRelitiveDistance();
   }
 }
