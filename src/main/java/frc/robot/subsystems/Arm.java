@@ -29,7 +29,7 @@ public class Arm extends SubsystemBase {
 
   public double getRelitiveDistance() {
     double distance = m_reletivEncoder.getDistance();
-    SmartDashboard.putNumber("Relitve arm distance", distance);
+    SmartDashboard.putNumber("Relitive arm distance", distance);
     return distance;
   }
 
