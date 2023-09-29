@@ -14,36 +14,35 @@ package frc.robot;
  */
 public final class Constants {
   public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
-  }
-
-  public static class DriveTrainConstants {
-    public static final int frontLeftMotorID = 7;
-    public static final int backLeftMotorID = 6;
-    public static final int frontRightMotorID = 8;
-    public static final int backRightMotorID = 5;
     public static final int kDriverControllerPort = 1;
     public static final int JoystickID = 0;
   }
 
+  public static class DriveTrainConstants {
+    public static final int frontLeftMotorID = 3;
+    public static final int backLeftMotorID = 1;
+    public static final int frontRightMotorID = 4;
+    public static final int backRightMotorID = 2;
+  }
+
   public static class ShooterConstants {
+    // left motor
     public static final int frontShooterId = 7;
+    // right motor
     public static final int backShooterId = 8;
 
     public static final double frontShooterSpeed = .5;
-    public static final double frontShooterSpeedReverse = -.5;
 
     public static final double backIndexSpeed = .5;
-    public static final double backIndexSpeedReverse = -.5;
 
-    public static final double innerSpeed = .5;
-    public static final double outerSpeed = .5;
+    public static final double innerOuterSpeed = .5;
 
-    public static final double innerSpeedReversed = -.3;
-    public static final double outerSpeedReversed = -.3;
+    public static final double innerOuterSpeedReversed = -.3;
   }
 
   public static class ArmConstants {
+    public static final int leftArmMotorID = 5;
+    public static final int rightArmMotorID = 6;
     public static final double armSpeed = .1;
     public static final int RELETIVE_ENCODER_A = 9;
     public static final int RELETIVE_ENCODER_B = 7;

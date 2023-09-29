@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.Constants.DriveTrainConstants;
+import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
@@ -30,7 +30,7 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final DriveTrain m_DriveTrain = new DriveTrain();
 
-  private final Joystick m_Joystick = new Joystick(DriveTrainConstants.JoystickID);
+  private final Joystick m_Joystick = new Joystick(OperatorConstants.JoystickID);
   private final CommandXboxController m_CommandXboxController = new CommandXboxController(1);
 
   private final Shooter m_Shooter = new Shooter();
@@ -64,7 +64,9 @@ public class RobotContainer {
         .rightBumper()
         .whileTrue(
             new StartEndCommand(
-                () -> m_Shooter.ShootCube(ShooterConstants.outerSpeed, ShooterConstants.innerSpeed),
+                () ->
+                    m_Shooter.ShootCube(
+                        ShooterConstants.innerOuterSpeed, ShooterConstants.innerOuterSpeed),
                 () -> m_Shooter.ShootCube(0, 0),
                 m_Shooter));
     m_CommandXboxController
@@ -73,21 +75,11 @@ public class RobotContainer {
             new StartEndCommand(
                 () ->
                     m_Shooter.IntakeCube(
-                        ShooterConstants.outerSpeedReversed, ShooterConstants.innerSpeedReversed),
+                        ShooterConstants.innerOuterSpeedReversed,
+                        ShooterConstants.innerOuterSpeedReversed),
                 () -> m_Shooter.IntakeCube(0, 0),
                 m_Shooter));
-    // m_XboxController.rightBumper().whileTrue(new StartEndCommand(() ->
-    // m_Shooter.runShooter(ShooterConstants.innerSpeed), () -> m_Shooter.runShooter(0),
-    // m_Shooter));
-    // m_XboxController.leftBumper().whileTrue(new StartEndCommand(() ->
-    // m_Shooter.runShooter(ShooterConstants.frontShooterSpeedReverse), () ->
-    // m_Shooter.runShooter(0), m_Shooter));
-
-    // m_XboxController.leftTrigger().whileTrue(new StartEndCommand(() ->
-    // m_Shooter.runIndex(ShooterConstants.outerSpeed), () -> m_Shooter.runIndex(0), m_Shooter));
-    // m_XboxController.rightTrigger().whileTrue(new StartEndCommand(() ->
-    // m_Shooter.runIndex(ShooterConstants.backIndexSpeedReverse), () -> m_Shooter.runIndex(0),
-    // m_Shooter));
+   
 
     m_CommandXboxController
         .leftTrigger()
@@ -95,7 +87,7 @@ public class RobotContainer {
             new StartEndCommand(
                 () ->
                     m_Shooter.IntakeCone(
-                        ShooterConstants.innerSpeed, ShooterConstants.outerSpeedReversed),
+                        ShooterConstants.innerOuterSpeed, ShooterConstants.innerOuterSpeedReversed),
                 () -> m_Shooter.IntakeCone(0, 0),
                 m_Shooter));
     m_CommandXboxController
@@ -104,7 +96,7 @@ public class RobotContainer {
             new StartEndCommand(
                 () ->
                     m_Shooter.ShootCone(
-                        ShooterConstants.innerSpeedReversed, ShooterConstants.outerSpeed),
+                        ShooterConstants.innerOuterSpeedReversed, ShooterConstants.innerOuterSpeed),
                 () -> m_Shooter.ShootCone(0, 0),
                 m_Shooter));
 
