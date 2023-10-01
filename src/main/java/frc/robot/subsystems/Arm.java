@@ -20,6 +20,10 @@ public class Arm extends SubsystemBase {
   public Arm() {
     m_reletivEncoder.setDistancePerPulse(ArmConstants.reletiveEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
+    m_absoluteEncoder.reset();
+    
+
+    
   }
 
   public void moveArm(double armSpeed) {
