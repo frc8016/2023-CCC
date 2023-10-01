@@ -44,9 +44,12 @@ public final class Constants {
   }
 
   public static class ArmConstants {
+    //motors
     public static final int leftArmMotorID = 5;
     public static final int rightArmMotorID = 6;
+    //speeds
     public static final double armSpeed = .1;
+    //encoders
     public static final int RELETIVE_ENCODER_A = 9;
     public static final int RELETIVE_ENCODER_B = 7;
     public static final int ABSOLUTE_ENCODER_PORT = 8;

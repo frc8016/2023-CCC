@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ArmConstants;
 
 public class Arm extends SubsystemBase {
-  private CANSparkMax armLeft = new CANSparkMax(ArmConstants.leftArmMotorID, MotorType.kBrushless);
+
+  private CANSparkMax armLeft = 
+    new CANSparkMax(ArmConstants.leftArmMotorID, MotorType.kBrushless);
   private CANSparkMax armRight =
       new CANSparkMax(ArmConstants.rightArmMotorID, MotorType.kBrushless);
   private final Encoder m_reletivEncoder =
@@ -17,11 +19,12 @@ public class Arm extends SubsystemBase {
   private final DutyCycleEncoder m_absoluteEncoder =
       new DutyCycleEncoder(ArmConstants.ABSOLUTE_ENCODER_PORT);
 
+
   public Arm() {
     m_reletivEncoder.setDistancePerPulse(ArmConstants.reletiveEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
     m_absoluteEncoder.reset();
-    
+
 
     
   }
