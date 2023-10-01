@@ -43,7 +43,12 @@ public class RobotContainer {
     configureBindings();
 
     m_DriveTrain.setDefaultCommand(
-        new RunCommand(() -> m_DriveTrain.arcadeDrive(m_Joystick), m_DriveTrain));
+        new RunCommand(
+            () ->
+                m_DriveTrain.arcadeDrive(
+                    m_Joystick.getRawAxis(OperatorConstants.JOYSTICK_X_AXIS),
+                    m_Joystick.getRawAxis(OperatorConstants.JOYSTICK_Y_AXIS)),
+            m_DriveTrain));
   }
 
   /**
@@ -59,7 +64,7 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));
-
+    // shooter cube
     m_CommandXboxController
         .rightBumper()
         .whileTrue(
@@ -79,8 +84,8 @@ public class RobotContainer {
                         ShooterConstants.innerOuterSpeedReversed),
                 () -> m_Shooter.IntakeCube(0, 0),
                 m_Shooter));
-   
 
+    // shooter cone
     m_CommandXboxController
         .leftTrigger()
         .whileTrue(
@@ -99,7 +104,7 @@ public class RobotContainer {
                         ShooterConstants.innerOuterSpeedReversed, ShooterConstants.innerOuterSpeed),
                 () -> m_Shooter.ShootCone(0, 0),
                 m_Shooter));
-
+    // move arm
     m_CommandXboxController
         .b()
         .whileTrue(new StartEndCommand(() -> m_Arm.moveArm(.1), () -> m_Arm.moveArm(0), m_Arm));

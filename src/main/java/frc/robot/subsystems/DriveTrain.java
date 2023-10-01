@@ -2,7 +2,6 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -23,13 +22,10 @@ public class DriveTrain extends SubsystemBase {
 
   private DifferentialDrive driveSystem = new DifferentialDrive(m_leftGroup, m_rightGroup);
 
-  public void arcadeDrive(Joystick driverControllerJoystick) {
-    double forwardPower = driverControllerJoystick.getY();
-    double turnPower = driverControllerJoystick.getX();
+  public void arcadeDrive(double speed, double rotation) {
+    driveSystem.arcadeDrive(-speed, -rotation);
 
     m_leftGroup.setInverted(false);
     m_rightGroup.setInverted(true);
-
-    driveSystem.arcadeDrive(forwardPower, turnPower);
   }
 }
