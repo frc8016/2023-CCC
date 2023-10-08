@@ -44,16 +44,29 @@ public final class Constants {
   }
 
   public static class ArmConstants {
-    //motors
+    // motors
     public static final int leftArmMotorID = 5;
     public static final int rightArmMotorID = 6;
-    //speeds
-    public static final double armSpeed = .1;
-    //encoders
-    public static final int RELETIVE_ENCODER_A = 9;
-    public static final int RELETIVE_ENCODER_B = 7;
+
+    public static final int MOTOR_CURRENT_LIMIT = 20;
+    // encoders
+    public static final int RELATIVE_ENCODER_A = 9;
+    public static final int RELATIVE_ENCODER_B = 7;
     public static final int ABSOLUTE_ENCODER_PORT = 8;
-    public static final double reletiveEncoderDistancePerPulse = 360 / 1024;
+    public static final double reletiveEncoderDistancePerPulse = .3515625;
     public static final double dutyCycleEncoderDistancePerRotation = 360;
+
+    public static final double kp = 4;
+    public static final double ki = 0;
+    public static final double kd = 0;
+
+    public static final double kMaxVelocityDegPerSecond = 40;
+    public static final double kMaxAccelerationDegPerSecond = 1;
+    public static final double kAngleOfOffset = -110;
+
+    public static final double ks = .31961;
+    public static final double kv = .039134;
+    public static final double ka = .0049358;
+    public static final double kg = .057402;
   }
 }

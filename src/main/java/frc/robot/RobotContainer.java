@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -31,7 +30,7 @@ public class RobotContainer {
   private final DriveTrain m_DriveTrain = new DriveTrain();
 
   private final Joystick m_Joystick = new Joystick(OperatorConstants.JoystickID);
-  private final CommandXboxController m_CommandXboxController = new CommandXboxController(1);
+  private final CommandXboxController m_XboxController = new CommandXboxController(1);
 
   private final Shooter m_Shooter = new Shooter();
 
@@ -62,10 +61,38 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
-    // shooter cube
-    m_CommandXboxController
+    // arm button mapping
+    /*  m_XboxController
+        .x()
+        .onTrue(
+            Commands.runOnce(
+                () -> {
+                  m_Arm.setGoal(ArmConstants.ArmPosition.kIndex.value);
+                  m_Arm.enable();
+                },
+                m_Arm));
+
+    m_XboxController
+        .y()
+        .onTrue(
+            Commands.runOnce(
+                () -> {
+                  m_Arm.setGoal();
+                  m_Arm.enable();
+                },
+                m_Arm));
+
+    m_XboxController
+        .a()
+        .onTrue(
+            Commands.runOnce(
+                () -> {
+                  m_Arm.setGoal();
+                  m_Arm.enable();
+                },
+                m_Arm));*/
+    // shoot cube
+    m_XboxController
         .rightBumper()
         .whileTrue(
             new StartEndCommand(
@@ -74,7 +101,7 @@ public class RobotContainer {
                         ShooterConstants.innerOuterSpeed, ShooterConstants.innerOuterSpeed),
                 () -> m_Shooter.ShootCube(0, 0),
                 m_Shooter));
-    m_CommandXboxController
+    m_XboxController
         .leftBumper()
         .whileTrue(
             new StartEndCommand(
@@ -86,7 +113,7 @@ public class RobotContainer {
                 m_Shooter));
 
     // shooter cone
-    m_CommandXboxController
+    /*  m_XboxController
         .leftTrigger()
         .whileTrue(
             new StartEndCommand(
@@ -95,7 +122,7 @@ public class RobotContainer {
                         ShooterConstants.innerOuterSpeed, ShooterConstants.innerOuterSpeedReversed),
                 () -> m_Shooter.IntakeCone(0, 0),
                 m_Shooter));
-    m_CommandXboxController
+    m_XboxController
         .rightTrigger()
         .whileTrue(
             new StartEndCommand(
@@ -103,11 +130,8 @@ public class RobotContainer {
                     m_Shooter.ShootCone(
                         ShooterConstants.innerOuterSpeedReversed, ShooterConstants.innerOuterSpeed),
                 () -> m_Shooter.ShootCone(0, 0),
-                m_Shooter));
-    // move arm
-    m_CommandXboxController
-        .b()
-        .whileTrue(new StartEndCommand(() -> m_Arm.moveArm(.1), () -> m_Arm.moveArm(0), m_Arm));
+                m_Shooter));*/
+
   }
 
   /**
