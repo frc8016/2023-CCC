@@ -9,7 +9,7 @@ import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
-// import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotController;
@@ -41,12 +41,13 @@ public class Arm extends ProfiledPIDSubsystem {
       new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
 
   // Limit Switches
-  // private final DigitalInput LimitSwitch = new DigitalInput(0);
+  private final DigitalInput m_limitSwitch = new DigitalInput(0);
 
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
           DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 0, m_enabled);
+
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
   private double m_relativeOffsetDegrees;
@@ -97,7 +98,6 @@ public class Arm extends ProfiledPIDSubsystem {
     if (m_armRight.setIdleMode(IdleMode.kBrake) != REVLibError.kOk) {
       System.out.println("ERROR while setting Right arm motor to Brake mode");
     }
-    // set current limits
 
     // burn all changes to flash
     m_armLeft.burnFlash();
@@ -120,6 +120,14 @@ public class Arm extends ProfiledPIDSubsystem {
     // add the feedforward to the PID output to get the motor output
     m_armLeft.setVoltage(output + feedforward);
     m_armRight.follow(m_armLeft, true);
+    /*  if (m_limitSwitch.get()) {
+      m_armLeft.set(0);
+      m_armRight.set(0);
+    } else {
+      m_armLeft.set(m_relativeOffsetDegrees);
+      m_armRight.set(m_relativeOffsetDegrees);
+    } */
+
   }
 
   @Override

@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -18,7 +19,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
 
-/**
+/*
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
@@ -62,12 +63,13 @@ public class RobotContainer {
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     // arm button mapping
-    /*  m_XboxController
+
+    m_XboxController
         .x()
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(ArmConstants.ArmPosition.kIndex.value);
+                  m_Arm.setGoal(null);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -77,7 +79,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal();
+                  m_Arm.setGoal(null);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -87,10 +89,10 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal();
+                  m_Arm.setGoal(null);
                   m_Arm.enable();
                 },
-                m_Arm));*/
+                m_Arm));
     // shoot cube
     m_XboxController
         .rightBumper()
@@ -111,27 +113,6 @@ public class RobotContainer {
                         ShooterConstants.innerOuterSpeedReversed),
                 () -> m_Shooter.IntakeCube(0, 0),
                 m_Shooter));
-
-    // shooter cone
-    /*  m_XboxController
-        .leftTrigger()
-        .whileTrue(
-            new StartEndCommand(
-                () ->
-                    m_Shooter.IntakeCone(
-                        ShooterConstants.innerOuterSpeed, ShooterConstants.innerOuterSpeedReversed),
-                () -> m_Shooter.IntakeCone(0, 0),
-                m_Shooter));
-    m_XboxController
-        .rightTrigger()
-        .whileTrue(
-            new StartEndCommand(
-                () ->
-                    m_Shooter.ShootCone(
-                        ShooterConstants.innerOuterSpeedReversed, ShooterConstants.innerOuterSpeed),
-                () -> m_Shooter.ShootCone(0, 0),
-                m_Shooter));*/
-
   }
 
   /**

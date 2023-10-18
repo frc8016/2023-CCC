@@ -62,11 +62,11 @@ public final class Constants {
 
     public static final double kMaxVelocityDegPerSecond = 40;
     public static final double kMaxAccelerationDegPerSecond = 1;
-    public static final double kAngleOfOffset = -110;
+    public static final double kAngleOfOffset = -156.97;
 
-    public static final double ks = .31961;
-    public static final double kv = .039134;
-    public static final double ka = .0049358;
-    public static final double kg = .057402;
+    public static final double ks = 0.16993;
+    public static final double kv = 0.049548;
+    public static final double ka = 0.0094614;
+    public static final double kg = 0.03942;
   }
 }
