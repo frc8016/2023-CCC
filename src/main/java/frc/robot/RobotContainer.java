@@ -30,7 +30,7 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final DriveTrain m_DriveTrain = new DriveTrain();
 
-  private final Joystick m_Joystick = new Joystick(OperatorConstants.JoystickID);
+  private final Joystick m_Joystick = new Joystick(0);
   private final CommandXboxController m_XboxController = new CommandXboxController(1);
 
   private final Shooter m_Shooter = new Shooter();
@@ -46,8 +46,8 @@ public class RobotContainer {
         new RunCommand(
             () ->
                 m_DriveTrain.arcadeDrive(
-                    m_Joystick.getRawAxis(OperatorConstants.JOYSTICK_X_AXIS),
-                    m_Joystick.getRawAxis(OperatorConstants.JOYSTICK_Y_AXIS)),
+                    m_Joystick.getRawAxis(OperatorConstants.JOYSTICK_Y_AXIS),
+                    m_Joystick.getRawAxis(OperatorConstants.JOYSTICK_X_AXIS)),
             m_DriveTrain));
   }
 
@@ -69,7 +69,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(null);
+                  m_Arm.setGoal(90);
                   m_Arm.enable();
                 },
                 m_Arm));

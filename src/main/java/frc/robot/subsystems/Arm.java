@@ -41,7 +41,7 @@ public class Arm extends ProfiledPIDSubsystem {
       new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
 
   // Limit Switches
-  private final DigitalInput m_limitSwitch = new DigitalInput(0);
+  //private final DigitalInput m_limitSwitch = new DigitalInput(0);
 
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
