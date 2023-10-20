@@ -19,7 +19,6 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
 
-
 /*
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -37,7 +36,6 @@ public class RobotContainer {
   private final Shooter m_Shooter = new Shooter();
 
   private final Arm m_Arm = new Arm();
-  
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -65,7 +63,7 @@ public class RobotContainer {
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     // arm button mapping
-   m_XboxController
+    m_XboxController
         .x()
         .onTrue(
             Commands.runOnce(
@@ -104,7 +102,7 @@ public class RobotContainer {
                         ShooterConstants.innerOuterSpeed, ShooterConstants.innerOuterSpeed),
                 () -> m_Shooter.ShootCube(0, 0),
                 m_Shooter));
-    // intake cube 
+    // intake cube
     m_XboxController
         .leftBumper()
         .whileTrue(
