@@ -33,13 +33,7 @@
     }
   },
   "NetworkTables": {
-    "Persistent Values": {
-      "open": false
-    },
     "Retained Values": {
-      "open": false
-    },
-    "Transitory Values": {
       "open": false
     },
     "transitory": {
@@ -59,6 +53,17 @@
         "open": true
       }
     }
+  },
+  "NetworkTables Info": {
+    "Connections": {
+      "open": true
+    },
+    "Server": {
+      "open": true
+    }
+  },
+  "NetworkTables View": {
+    "visible": false
   },
   "Plot": {
     "Plot <0>": {

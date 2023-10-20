@@ -37,16 +37,15 @@ public class Arm extends ProfiledPIDSubsystem {
   private final DutyCycleEncoder m_absoluteEncoder =
       new DutyCycleEncoder(ArmConstants.ABSOLUTE_ENCODER_PORT);
   // Arm feedforward
-  private final ArmFeedforward m_ArmFeedforward =
-      new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
+
 
   // Limit Switches
-  //private final DigitalInput m_limitSwitch = new DigitalInput(0);
+  private final DigitalInput m_limitSwitch = new DigitalInput(0);
 
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
-          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 0, m_enabled);
+          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 0, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
@@ -64,8 +63,13 @@ public class Arm extends ProfiledPIDSubsystem {
               30,
               Units.degreesToRadians(m_ArmSim.getAngleRads()),
               6,
-              new Color8Bit(Color.kBlue)));
+              new Color8Bit(Color.kYellow)));
+       
 
+
+ private final ArmFeedforward m_ArmFeedforward =
+     new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
+     
   public Arm() {
     super(
         new ProfiledPIDController(
@@ -86,6 +90,10 @@ public class Arm extends ProfiledPIDSubsystem {
 
     SmartDashboard.putData("Arm Sim", m_mech2d);
     m_armTower.setColor(new Color8Bit(Color.kPurple));
+   
+   
+   
+    
   }
 
   private void configureMotors() {
@@ -118,15 +126,16 @@ public class Arm extends ProfiledPIDSubsystem {
     // calculate feedforward from setpoint
     double feedforward = m_ArmFeedforward.calculate(setpoint.position, setpoint.velocity);
     // add the feedforward to the PID output to get the motor output
+
     m_armLeft.setVoltage(output + feedforward);
     m_armRight.follow(m_armLeft, true);
-    /*  if (m_limitSwitch.get()) {
+      if (m_limitSwitch.get()) {
       m_armLeft.set(0);
       m_armRight.set(0);
     } else {
       m_armLeft.set(m_relativeOffsetDegrees);
       m_armRight.set(m_relativeOffsetDegrees);
-    } */
+    } 
 
   }
 

@@ -65,7 +65,7 @@ public final class Constants {
     public static final double kAngleOfOffset = -156.97;
 
     public static final double ks = 0.16993;
-    public static final double kv = 0.049548;
+    public static final double kv = 2.049548;
     public static final double ka = 0.0094614;
     public static final double kg = 0.03942;
   }

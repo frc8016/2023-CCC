@@ -25,7 +25,7 @@ public class DriveTrain extends SubsystemBase {
   public void arcadeDrive(double speed, double rotation) {
     driveSystem.arcadeDrive(-speed, -rotation);
 
-    m_leftGroup.setInverted(false);
-    m_rightGroup.setInverted(true);
+    m_leftGroup.setInverted(true);
+    m_rightGroup.setInverted(false);
   }
 }
