@@ -1,0 +1,794 @@
+[
+    {
+        "messageType": 2,
+        "timestamp": 44.50785827636719,
+        "seqNumber": 160,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 44.51246643066406,
+        "seqNumber": 161,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 44.51304626464844,
+        "seqNumber": 162,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 44.51979064941406,
+        "seqNumber": 163,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 44.52137756347656,
+        "seqNumber": 164,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 44.522216796875,
+        "seqNumber": 165,
+        "line": "# /tmp/hs_err_pid3006.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 50.57276916503906,
+        "seqNumber": 166,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 50.576141357421875,
+        "seqNumber": 167,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 50.57676696777344,
+        "seqNumber": 168,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 50.58335876464844,
+        "seqNumber": 169,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 50.58540344238281,
+        "seqNumber": 170,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 50.58613586425781,
+        "seqNumber": 171,
+        "line": "# /tmp/hs_err_pid3074.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 56.61590576171875,
+        "seqNumber": 172,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 56.616973876953125,
+        "seqNumber": 173,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 56.617340087890625,
+        "seqNumber": 174,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 56.61793518066406,
+        "seqNumber": 175,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 56.61839294433594,
+        "seqNumber": 176,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 56.61872863769531,
+        "seqNumber": 177,
+        "line": "# /tmp/hs_err_pid3142.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 62.669525146484375,
+        "seqNumber": 178,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 62.67047119140625,
+        "seqNumber": 179,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 62.67082214355469,
+        "seqNumber": 180,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 62.67143249511719,
+        "seqNumber": 181,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 62.67189025878906,
+        "seqNumber": 182,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 62.67222595214844,
+        "seqNumber": 183,
+        "line": "# /tmp/hs_err_pid3210.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 68.75312805175781,
+        "seqNumber": 184,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 68.75688171386719,
+        "seqNumber": 185,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 68.75746154785156,
+        "seqNumber": 186,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 68.76420593261719,
+        "seqNumber": 187,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 68.76591491699219,
+        "seqNumber": 188,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 68.76679992675781,
+        "seqNumber": 189,
+        "line": "# /tmp/hs_err_pid3278.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 74.77406311035156,
+        "seqNumber": 190,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 74.77494812011719,
+        "seqNumber": 191,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 74.77534484863281,
+        "seqNumber": 192,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 74.77638244628906,
+        "seqNumber": 193,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 74.77693176269531,
+        "seqNumber": 194,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 74.77729797363281,
+        "seqNumber": 195,
+        "line": "# /tmp/hs_err_pid3346.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 80.83689880371094,
+        "seqNumber": 196,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 80.84053039550781,
+        "seqNumber": 197,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 80.84114074707031,
+        "seqNumber": 198,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 80.84791564941406,
+        "seqNumber": 199,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 80.84974670410156,
+        "seqNumber": 200,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 80.85050964355469,
+        "seqNumber": 201,
+        "line": "# /tmp/hs_err_pid3414.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 86.91938781738281,
+        "seqNumber": 202,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 86.92274475097656,
+        "seqNumber": 203,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 86.92369079589844,
+        "seqNumber": 204,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 86.93067932128906,
+        "seqNumber": 205,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 86.93214416503906,
+        "seqNumber": 206,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 86.93293762207031,
+        "seqNumber": 207,
+        "line": "# /tmp/hs_err_pid3482.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 92.94721984863281,
+        "seqNumber": 208,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 92.94905090332031,
+        "seqNumber": 209,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 92.94938659667969,
+        "seqNumber": 210,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 92.94996643066406,
+        "seqNumber": 211,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 92.95030212402344,
+        "seqNumber": 212,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 92.95655822753906,
+        "seqNumber": 213,
+        "line": "# /tmp/hs_err_pid3550.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 99.03144836425781,
+        "seqNumber": 214,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 99.03520202636719,
+        "seqNumber": 215,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 99.03581237792969,
+        "seqNumber": 216,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 99.04261779785156,
+        "seqNumber": 217,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 99.04414367675781,
+        "seqNumber": 218,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 99.04490661621094,
+        "seqNumber": 219,
+        "line": "# /tmp/hs_err_pid3618.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 105.08177185058594,
+        "seqNumber": 220,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 105.08512878417969,
+        "seqNumber": 221,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 105.08570861816406,
+        "seqNumber": 222,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 105.09220886230469,
+        "seqNumber": 223,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 105.09403991699219,
+        "seqNumber": 224,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 105.09480285644531,
+        "seqNumber": 225,
+        "line": "# /tmp/hs_err_pid3686.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 111.28013610839844,
+        "seqNumber": 226,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 111.28096008300781,
+        "seqNumber": 227,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 111.28138732910156,
+        "seqNumber": 228,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 111.28269958496094,
+        "seqNumber": 229,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 111.28895568847656,
+        "seqNumber": 230,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 111.28974914550781,
+        "seqNumber": 231,
+        "line": "# /tmp/hs_err_pid3754.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 119.36222839355469,
+        "seqNumber": 232,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 119.36296081542969,
+        "seqNumber": 233,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 119.36326599121094,
+        "seqNumber": 234,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 119.36375427246094,
+        "seqNumber": 235,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 119.36427307128906,
+        "seqNumber": 236,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 119.36463928222656,
+        "seqNumber": 237,
+        "line": "# /tmp/hs_err_pid3935.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 125.40129089355469,
+        "seqNumber": 238,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 125.40214538574219,
+        "seqNumber": 239,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 125.40455627441406,
+        "seqNumber": 240,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 125.41203308105469,
+        "seqNumber": 241,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 125.41297912597656,
+        "seqNumber": 242,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 125.41368103027344,
+        "seqNumber": 243,
+        "line": "# /tmp/hs_err_pid4003.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 131.48228454589844,
+        "seqNumber": 244,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 131.48326110839844,
+        "seqNumber": 245,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 131.48362731933594,
+        "seqNumber": 246,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 131.48426818847656,
+        "seqNumber": 247,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 131.4848175048828,
+        "seqNumber": 248,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 131.4851837158203,
+        "seqNumber": 249,
+        "line": "# /tmp/hs_err_pid4071.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 137.54222106933594,
+        "seqNumber": 250,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 137.5429229736328,
+        "seqNumber": 251,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 137.5432586669922,
+        "seqNumber": 252,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 137.5438690185547,
+        "seqNumber": 253,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 137.54441833496094,
+        "seqNumber": 254,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 137.5447540283203,
+        "seqNumber": 255,
+        "line": "# /tmp/hs_err_pid4139.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 143.59010314941406,
+        "seqNumber": 256,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 143.59327697753906,
+        "seqNumber": 257,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 143.5935821533203,
+        "seqNumber": 258,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 143.60072326660156,
+        "seqNumber": 259,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 143.6017303466797,
+        "seqNumber": 260,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 143.60243225097656,
+        "seqNumber": 261,
+        "line": "# /tmp/hs_err_pid4207.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 149.6515655517578,
+        "seqNumber": 262,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 149.65245056152344,
+        "seqNumber": 263,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 149.65281677246094,
+        "seqNumber": 264,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 149.6533966064453,
+        "seqNumber": 265,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 149.6538848876953,
+        "seqNumber": 266,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 149.6542205810547,
+        "seqNumber": 267,
+        "line": "# /tmp/hs_err_pid4275.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 155.7692413330078,
+        "seqNumber": 268,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 155.77317810058594,
+        "seqNumber": 269,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 155.7738800048828,
+        "seqNumber": 270,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 155.78074645996094,
+        "seqNumber": 271,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 155.7823028564453,
+        "seqNumber": 272,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 155.78309631347656,
+        "seqNumber": 273,
+        "line": "# /tmp/hs_err_pid4343.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 161.81480407714844,
+        "seqNumber": 274,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacca0000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 161.81834411621094,
+        "seqNumber": 275,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 161.81922912597656,
+        "seqNumber": 276,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 161.8257598876953,
+        "seqNumber": 277,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 161.8279571533203,
+        "seqNumber": 278,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 161.8288116455078,
+        "seqNumber": 279,
+        "line": "# /tmp/hs_err_pid4411.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 167.8345489501953,
+        "seqNumber": 280,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 167.83555603027344,
+        "seqNumber": 281,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 167.83592224121094,
+        "seqNumber": 282,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 167.8368682861328,
+        "seqNumber": 283,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 167.8428192138672,
+        "seqNumber": 284,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 167.84339904785156,
+        "seqNumber": 285,
+        "line": "# /tmp/hs_err_pid4479.log"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 173.87306213378906,
+        "seqNumber": 286,
+        "line": "OpenJDK Client VM warning: INFO: os::commit_memory(0xacc40000, 65536, 0) failed; error='Not enough space' (errno=12)"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 173.87672424316406,
+        "seqNumber": 287,
+        "line": "#"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 173.87733459472656,
+        "seqNumber": 288,
+        "line": "# There is insufficient memory for the Java Runtime Environment to continue."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 173.8839569091797,
+        "seqNumber": 289,
+        "line": "# Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory."
+    },
+    {
+        "messageType": 2,
+        "timestamp": 173.8856964111328,
+        "seqNumber": 290,
+        "line": "# An error report file with more information is saved as:"
+    },
+    {
+        "messageType": 2,
+        "timestamp": 173.8867950439453,
+        "seqNumber": 291,
+        "line": "# /tmp/hs_err_pid4547.log"
+    }
+]

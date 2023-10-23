@@ -26,18 +26,8 @@ public class Shooter extends SubsystemBase {
   }
 
   public void IntakeCube(double outerSpeedReversed, double innerOuterSpeedReversed) {
+
     frontNeoShooter.set(innerOuterSpeedReversed);
     backIndex.set(innerOuterSpeedReversed);
-  }
-  // pick up + shoot cones
-
-  public void IntakeCone(double innerOuterSpeed, double innerOuterSpeedReversed) {
-    frontNeoShooter.set(innerOuterSpeed);
-    backIndex.set(innerOuterSpeedReversed);
-  }
-
-  public void ShootCone(double innerOuterSpeedReversed, double innerOuterSpeed) {
-    frontNeoShooter.set(innerOuterSpeedReversed);
-    backIndex.set(innerOuterSpeed);
   }
 }

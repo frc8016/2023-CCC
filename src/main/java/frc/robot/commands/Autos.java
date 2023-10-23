@@ -29,7 +29,7 @@ public final class Autos {
         new WaitCommand(0),
         Commands.runOnce(
             (() ->
-                shooter.ShootCone(
+                shooter.ShootCube(
                     ShooterConstants.innerOuterSpeedReversed, ShooterConstants.innerOuterSpeed)),
             shooter),
         Commands.runOnce(

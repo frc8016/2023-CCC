@@ -36,11 +36,11 @@ public final class Constants {
 
     public static final double frontShooterSpeed = .5;
 
-    public static final double backIndexSpeed = .5;
+    public static final double backIndexSpeed = 1;
 
-    public static final double innerOuterSpeed = .5;
+    public static final double innerOuterSpeed = 1;
 
-    public static final double innerOuterSpeedReversed = -.3;
+    public static final double innerOuterSpeedReversed = -.1;
   }
 
   public static class ArmConstants {
@@ -53,20 +53,21 @@ public final class Constants {
     public static final int RELATIVE_ENCODER_A = 9;
     public static final int RELATIVE_ENCODER_B = 7;
     public static final int ABSOLUTE_ENCODER_PORT = 8;
-    public static final double reletiveEncoderDistancePerPulse = .3515625;
+
+    public static final double reletiveEncoderDistancePerPulse = 360 / 1024;
     public static final double dutyCycleEncoderDistancePerRotation = 360;
 
-    public static final double kp = 4;
+    public static final double kp = 2.7271E-05;
     public static final double ki = 0;
     public static final double kd = 0;
 
     public static final double kMaxVelocityDegPerSecond = 40;
-    public static final double kMaxAccelerationDegPerSecond = 1;
-    public static final double kAngleOfOffset = -156.97;
+    public static final double kMaxAccelerationDegPerSecondSquared = 1;
+    public static final double kAngleOfOffset = -51;
 
-    public static final double ks = 0.16993;
-    public static final double kv = 3;
-    public static final double ka = 0.0094614;
-    public static final double kg = 0.03942;
+    public static final double ks = 0.25095;
+    public static final double kv = 0.033085;
+    public static final double ka = 0.071922;
+    public static final double kg = 0.097322;
   }
 }

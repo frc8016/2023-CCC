@@ -44,7 +44,7 @@ public class Arm extends ProfiledPIDSubsystem {
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
-          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 0, true);
+          DCMotor.getNEO(2), 3.333, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 0, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
@@ -54,7 +54,7 @@ public class Arm extends ProfiledPIDSubsystem {
   private final Mechanism2d m_mech2d = new Mechanism2d(60, 60);
   private final MechanismRoot2d m_armPivot = m_mech2d.getRoot("ArmPivot", 30, 30);
   private final MechanismLigament2d m_armTower =
-      m_armPivot.append(new MechanismLigament2d("ArmTower", 30, -90));
+      m_armPivot.append(new MechanismLigament2d("ArmTower", 30, 30));
   private final MechanismLigament2d m_arm =
       m_armPivot.append(
           new MechanismLigament2d(
@@ -74,7 +74,8 @@ public class Arm extends ProfiledPIDSubsystem {
             ArmConstants.ki,
             ArmConstants.kd,
             new TrapezoidProfile.Constraints(
-                ArmConstants.kMaxVelocityDegPerSecond, ArmConstants.kMaxAccelerationDegPerSecond)),
+                ArmConstants.kMaxVelocityDegPerSecond,
+                ArmConstants.kMaxAccelerationDegPerSecondSquared)),
         0);
 
     configureMotors();
@@ -107,7 +108,8 @@ public class Arm extends ProfiledPIDSubsystem {
   // runs arm with feedforward control
   public void set(double speed) {
     m_armLeft.set(speed);
-    m_armRight.follow(m_armLeft, true);
+    m_armRight.set(speed);
+    m_armRight.setInverted(true);
   }
   // Return raw absolute encoder position
   public double getRawAbsolutePosition() {
@@ -121,14 +123,17 @@ public class Arm extends ProfiledPIDSubsystem {
     // add the feedforward to the PID output to get the motor output
 
     m_armLeft.setVoltage(output + feedforward);
-    m_armRight.follow(m_armLeft, true);
+    m_armRight.setVoltage(output + feedforward);
+    m_armRight.setInverted(true);
+
+    /* // limit switch
     if (m_limitSwitch.get()) {
       m_armLeft.set(0);
       m_armRight.set(0);
     } else {
       m_armLeft.set(m_relativeOffsetDegrees);
       m_armRight.set(m_relativeOffsetDegrees);
-    }
+    }*/
   }
 
   @Override
