@@ -8,9 +8,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.Constants.ShooterConstants;
 import frc.robot.commands.Autos;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
@@ -64,17 +66,17 @@ public class RobotContainer {
 
     m_XboxController
         .x()
-        .whileTrue(
+        .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(60);
+                  m_Arm.setGoal(90);
                   m_Arm.enable();
                 },
                 m_Arm));
 
     m_XboxController
         .y()
-        .whileTrue(
+        .onTrue(
             Commands.runOnce(
                 () -> {
                   m_Arm.setGoal(45);
@@ -84,19 +86,53 @@ public class RobotContainer {
 
     m_XboxController
         .a()
-        .whileTrue(
+        .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(22.5);
+                  m_Arm.setGoal(120);
+                  m_Arm.enable();
+                },
+                m_Arm));
+
+    m_XboxController
+        .b()
+        .onTrue(
+            Commands.runOnce(
+                () -> {
+                  m_Arm.setGoal(15);
                   m_Arm.enable();
                 },
                 m_Arm));
 
     // shooter
-    // shoot cube
-    /*m_XboxController
+
+    // intake cube
+    m_XboxController
+        .leftBumper()
+        .whileTrue(
+            new StartEndCommand(
+                () ->
+                    m_Shooter.IntakeCube(
+                        ShooterConstants.innerOuterSpeedReversed,
+                        ShooterConstants.innerOuterSpeedReversed),
+                () -> m_Shooter.IntakeCube(0, 0),
+                m_Shooter));
+
+    // Shoot cube
+    m_XboxController
+        .rightBumper()
+        .whileTrue(
+            new StartEndCommand(
+                () ->
+                    m_Shooter.ShootCube(
+                        ShooterConstants.innerOuterSpeed, ShooterConstants.innerOuterSpeed),
+                () -> m_Shooter.ShootCube(0, 0),
+                m_Shooter));
+
+    // shoot cube potencial more complicated with wait command
+    /*   m_XboxController
     .rightBumper()
-    .onTrue(
+    .whileTrue(
         Commands.sequence(
             new RunCommand(
                 () -> {
@@ -104,31 +140,7 @@ public class RobotContainer {
                   new WaitCommand(.25);
                   m_Shooter.runIndex(ShooterConstants.innerOuterSpeed);
          }))); */
-    /*   // intake cube
-        m_XboxController
-            .leftBumper()
-            .whileTrue(
-                new StartEndCommand(
-                    () ->
-                        m_Shooter.IntakeCube(
-                            ShooterConstants.innerOuterSpeedReversed,
-                            ShooterConstants.innerOuterSpeedReversed),
-                    () -> m_Shooter.IntakeCube(0, 0),
-                    m_Shooter));
-    }
-
-     m_XboxController
-     .rightBumper()
-     .whileTrue(
-      new StartEndCommand(
-        () ->
-            m_Shooter.ShootCube(
-                ShooterConstants.innerOuterSpeed,
-                ShooterConstants.innerOuterSpeed),
-        () -> m_Shooter.ShootCube(0, 0),
-        m_Shooter)); */
   }
-  // intake cube
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
