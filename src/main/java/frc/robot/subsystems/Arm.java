@@ -36,7 +36,6 @@ public class Arm extends ProfiledPIDSubsystem {
       new Encoder(ArmConstants.RELATIVE_ENCODER_A, ArmConstants.RELATIVE_ENCODER_B);
   private final DutyCycleEncoder m_absoluteEncoder =
       new DutyCycleEncoder(ArmConstants.ABSOLUTE_ENCODER_PORT);
-  // Arm feedforward
 
   // Limit Switches
   private final DigitalInput m_limitSwitch = new DigitalInput(0);
@@ -44,23 +43,22 @@ public class Arm extends ProfiledPIDSubsystem {
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
-          DCMotor.getNEO(2), 3.333, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 0, true);
+          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 360, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
   private double m_relativeOffsetDegrees;
-
-  // create smartdashboard
+  // Create arm SmartDashboard visualization
   private final Mechanism2d m_mech2d = new Mechanism2d(60, 60);
   private final MechanismRoot2d m_armPivot = m_mech2d.getRoot("ArmPivot", 30, 30);
   private final MechanismLigament2d m_armTower =
-      m_armPivot.append(new MechanismLigament2d("ArmTower", 30, 30));
+      m_armPivot.append(new MechanismLigament2d("ArmTower", 30, -90));
   private final MechanismLigament2d m_arm =
       m_armPivot.append(
           new MechanismLigament2d(
               "Arm",
               30,
-              Units.degreesToRadians(m_ArmSim.getAngleRads()),
+              Units.radiansToDegrees(m_ArmSim.getAngleRads()),
               6,
               new Color8Bit(Color.kYellow)));
 
@@ -150,5 +148,7 @@ public class Arm extends ProfiledPIDSubsystem {
     m_ArmSim.update(.020);
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
     m_arm.setAngle(Units.degreesToRadians(m_ArmSim.getAngleRads()));
+
+    m_arm.setAngle(0);
   }
 }
