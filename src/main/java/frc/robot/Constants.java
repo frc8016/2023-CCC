@@ -54,16 +54,16 @@ public final class Constants {
     public static final int RELATIVE_ENCODER_B = 7;
     public static final int ABSOLUTE_ENCODER_PORT = 8;
 
-    public static final double reletiveEncoderDistancePerPulse = .3515625;
-    public static final double dutyCycleEncoderDistancePerRotation = 360;
+    public static final double reletiveEncoderDistancePerPulse = 2 * Math.PI / 1024;
+    public static final double dutyCycleEncoderDistancePerRotation = 2 * Math.PI;
 
     public static final double kp = 2.7271E-05;
     public static final double ki = 0;
     public static final double kd = 0;
 
-    public static final double kMaxVelocityDegPerSecond = 40;
-    public static final double kMaxAccelerationDegPerSecondSquared = 1;
-    public static final double kAngleOfOffset = -51;
+    public static final double kMaxVelocityRadPerSecond = Math.PI / 4;
+    public static final double kMaxAccelerationRadPerSecondSquared = 1;
+    public static final double kAngleOfOffset = -.89;
 
     public static final double ks = 0.25095;
     public static final double kv = 0.033085;

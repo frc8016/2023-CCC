@@ -9,7 +9,6 @@ import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotController;
@@ -38,16 +37,16 @@ public class Arm extends ProfiledPIDSubsystem {
       new DutyCycleEncoder(ArmConstants.ABSOLUTE_ENCODER_PORT);
 
   // Limit Switches
-  private final DigitalInput m_limitSwitch = new DigitalInput(0);
+  // private final DigitalInput m_limitSwitch = new DigitalInput(0);
 
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
-          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 360, true);
+          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 2, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
-  private double m_relativeOffsetDegrees;
+  private double m_relativeOffsetRadians;
   // Create arm SmartDashboard visualization
   private final Mechanism2d m_mech2d = new Mechanism2d(60, 60);
   private final MechanismRoot2d m_armPivot = m_mech2d.getRoot("ArmPivot", 30, 30);
@@ -72,17 +71,16 @@ public class Arm extends ProfiledPIDSubsystem {
             ArmConstants.ki,
             ArmConstants.kd,
             new TrapezoidProfile.Constraints(
-                ArmConstants.kMaxVelocityDegPerSecond,
-                ArmConstants.kMaxAccelerationDegPerSecondSquared)),
-        0);
+                ArmConstants.kMaxVelocityRadPerSecond,
+                ArmConstants.kMaxAccelerationRadPerSecondSquared)));
 
     configureMotors();
+
 
     m_relativeEncoder.reset();
     m_relativeEncoder.setDistancePerPulse(ArmConstants.reletiveEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
-
-    m_relativeOffsetDegrees = ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance();
+    m_relativeOffsetRadians = ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance();
 
     SmartDashboard.putData("Arm Sim", m_mech2d);
     m_armTower.setColor(new Color8Bit(Color.kPurple));
@@ -106,8 +104,8 @@ public class Arm extends ProfiledPIDSubsystem {
   // runs arm with feedforward control
   public void set(double speed) {
     m_armLeft.set(speed);
-    m_armRight.set(speed);
     m_armRight.setInverted(true);
+    m_armRight.set(speed);
   }
   // Return raw absolute encoder position
   public double getRawAbsolutePosition() {
@@ -124,22 +122,20 @@ public class Arm extends ProfiledPIDSubsystem {
     m_armRight.setVoltage(output + feedforward);
     m_armRight.setInverted(true);
 
-    /* // limit switch
-    if (m_limitSwitch.get()) {
+    // limit switch
+    /*if (m_limitSwitch.get()) {
       m_armLeft.set(0);
       m_armRight.set(0);
-    } else {
-      m_armLeft.set(m_relativeOffsetDegrees);
-      m_armRight.set(m_relativeOffsetDegrees);
     }*/
   }
 
   @Override
   protected double getMeasurement() {
+
     SmartDashboard.putData("Arm PID", getController());
     SmartDashboard.putNumber(
-        "Arm Position", m_relativeEncoder.getDistance() + m_relativeOffsetDegrees);
-    return m_relativeEncoder.getDistance() + m_relativeOffsetDegrees;
+        "Arm Position", m_relativeEncoder.getDistance() + m_relativeOffsetRadians);
+    return m_relativeEncoder.getDistance() + m_relativeOffsetRadians;
   }
 
   @Override
@@ -149,6 +145,6 @@ public class Arm extends ProfiledPIDSubsystem {
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
     m_arm.setAngle(Units.degreesToRadians(m_ArmSim.getAngleRads()));
 
-    m_arm.setAngle(0);
+    // m_arm.setAngle(45);
   }
 }
