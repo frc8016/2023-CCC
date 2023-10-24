@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.revrobotics.CANSparkMax.IdleMode;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
@@ -69,7 +71,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(2 * Math.PI);
+                  m_Arm.setGoal(Math.PI);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -79,7 +81,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(-Math.PI / 4);
+                  m_Arm.setGoal(Math.PI / 2);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -89,21 +91,12 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(-Math.PI / 12);
+                  m_Arm.setGoal(Math.PI / 4);
                   m_Arm.enable();
                 },
                 m_Arm));
 
-    m_XboxController
-        .b()
-        .onTrue(
-            Commands.runOnce(
-                () -> {
-                  m_Arm.setGoal(Math.PI);
-                  m_Arm.enable();
-                },
-                m_Arm));
-
+    
     // shooter
 
     // intake cube

@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.smartdashboard.MechanismRoot2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj.util.Color8Bit;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ProfiledPIDSubsystem;
 import frc.robot.Constants.ArmConstants;
 
@@ -63,6 +64,7 @@ public class Arm extends ProfiledPIDSubsystem {
 
   private final ArmFeedforward m_ArmFeedforward =
       new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
+public Command setIdleMode;
 
   public Arm() {
     super(
@@ -77,7 +79,7 @@ public class Arm extends ProfiledPIDSubsystem {
     configureMotors();
 
     m_relativeEncoder.reset();
-    m_relativeEncoder.setDistancePerPulse(ArmConstants.reletiveEncoderDistancePerPulse);
+    m_relativeEncoder.setDistancePerPulse(ArmConstants.relativeEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
     m_relativeOffsetRadians = ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance();
 
@@ -89,7 +91,8 @@ public class Arm extends ProfiledPIDSubsystem {
     m_armLeft.restoreFactoryDefaults();
     m_armRight.restoreFactoryDefaults();
 
-    if (m_armLeft.setIdleMode(IdleMode.kBrake) != REVLibError.kOk) {
+
+     if (m_armLeft.setIdleMode(IdleMode.kBrake) != REVLibError.kOk) {
       System.out.println("ERROR while setting Left arm motor to Brake Mode");
     }
     if (m_armRight.setIdleMode(IdleMode.kBrake) != REVLibError.kOk) {
@@ -100,6 +103,8 @@ public class Arm extends ProfiledPIDSubsystem {
     m_armLeft.burnFlash();
     m_armRight.burnFlash();
   }
+
+
   // runs arm with feedforward control
   public void set(double speed) {
     m_armLeft.set(speed);
@@ -132,8 +137,8 @@ public class Arm extends ProfiledPIDSubsystem {
 
     SmartDashboard.putData("Arm PID", getController());
     SmartDashboard.putNumber(
-        "Arm Position", m_relativeEncoder.getDistance() + m_relativeOffsetRadians);
-    return m_relativeEncoder.getDistance() + m_relativeOffsetRadians;
+        "Arm Position", m_relativeEncoder.getDistance() * 3/10);
+    return m_relativeEncoder.getDistance() * 3/10;
   }
 
   @Override
@@ -143,6 +148,6 @@ public class Arm extends ProfiledPIDSubsystem {
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
     m_arm.setAngle(Units.degreesToRadians(m_ArmSim.getAngleRads()));
 
-    // m_arm.setAngle(45);
+   
   }
 }

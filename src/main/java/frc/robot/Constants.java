@@ -54,10 +54,10 @@ public final class Constants {
     public static final int RELATIVE_ENCODER_B = 7;
     public static final int ABSOLUTE_ENCODER_PORT = 8;
 
-    public static final double reletiveEncoderDistancePerPulse = 2 * Math.PI / 1024;
+    public static final double relativeEncoderDistancePerPulse = 2 * Math.PI / 1024;
     public static final double dutyCycleEncoderDistancePerRotation = 2 * Math.PI;
 
-    public static final double kp = 0.2;
+    public static final double kp = 0;
     public static final double ki = 0;
     public static final double kd = 0;
 
