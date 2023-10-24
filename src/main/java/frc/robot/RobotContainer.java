@@ -79,7 +79,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 4);
+                  m_Arm.setGoal(-Math.PI / 4);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -89,7 +89,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 6);
+                  m_Arm.setGoal(-Math.PI / 12);
                   m_Arm.enable();
                 },
                 m_Arm));

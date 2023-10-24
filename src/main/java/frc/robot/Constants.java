@@ -57,7 +57,7 @@ public final class Constants {
     public static final double reletiveEncoderDistancePerPulse = 2 * Math.PI / 1024;
     public static final double dutyCycleEncoderDistancePerRotation = 2 * Math.PI;
 
-    public static final double kp = 0.1;
+    public static final double kp = 0.2;
     public static final double ki = 0;
     public static final double kd = 0;
 
