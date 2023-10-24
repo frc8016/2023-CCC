@@ -117,10 +117,10 @@ public class Arm extends ProfiledPIDSubsystem {
     // calculate feedforward from setpoint
     double feedforward = m_ArmFeedforward.calculate(setpoint.position, setpoint.velocity);
     // add the feedforward to the PID output to get the motor output
-
     m_armLeft.setVoltage(output + feedforward);
-    m_armRight.setVoltage(output + feedforward);
     m_armRight.setInverted(true);
+    m_armRight.setVoltage(output + feedforward);
+ 
 
     // limit switch
     /*if (m_limitSwitch.get()) {
