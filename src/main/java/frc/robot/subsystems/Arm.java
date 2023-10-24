@@ -41,8 +41,7 @@ public class Arm extends ProfiledPIDSubsystem {
 
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
-      new SingleJointedArmSim(
-          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, -Math.PI / 2, 2 * Math.PI, true);
+      new SingleJointedArmSim(DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, 0, 2 * Math.PI, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
@@ -138,6 +137,7 @@ public class Arm extends ProfiledPIDSubsystem {
     m_ArmSim.setInputVoltage(m_commanded);
     m_ArmSim.update(.020);
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
+    System.out.println("Angle: " + m_ArmSim.getAngleRads());
     m_arm.setAngle(Units.radiansToDegrees(m_ArmSim.getAngleRads()));
   }
 }
