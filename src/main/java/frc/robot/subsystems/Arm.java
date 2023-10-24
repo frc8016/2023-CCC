@@ -11,7 +11,6 @@ import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.simulation.EncoderSim;
 import edu.wpi.first.wpilibj.simulation.SingleJointedArmSim;
 import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
@@ -24,6 +23,7 @@ import edu.wpi.first.wpilibj2.command.ProfiledPIDSubsystem;
 import frc.robot.Constants.ArmConstants;
 
 public class Arm extends ProfiledPIDSubsystem {
+  private double m_commanded = 0;
   // motor controllers
   private CANSparkMax m_armLeft =
       new CANSparkMax(ArmConstants.leftArmMotorID, MotorType.kBrushless);
@@ -42,7 +42,7 @@ public class Arm extends ProfiledPIDSubsystem {
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
-          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 2, true);
+          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, -Math.PI / 2, 2 * Math.PI, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
@@ -75,7 +75,6 @@ public class Arm extends ProfiledPIDSubsystem {
                 ArmConstants.kMaxAccelerationRadPerSecondSquared)));
 
     configureMotors();
-
 
     m_relativeEncoder.reset();
     m_relativeEncoder.setDistancePerPulse(ArmConstants.reletiveEncoderDistancePerPulse);
@@ -116,17 +115,13 @@ public class Arm extends ProfiledPIDSubsystem {
   protected void useOutput(double output, TrapezoidProfile.State setpoint) {
     // calculate feedforward from setpoint
     double feedforward = m_ArmFeedforward.calculate(setpoint.position, setpoint.velocity);
+    System.out.println(output + feedforward);
     // add the feedforward to the PID output to get the motor output
 
+    m_commanded = output + feedforward;
     m_armLeft.setVoltage(output + feedforward);
-    m_armRight.setVoltage(output + feedforward);
     m_armRight.setInverted(true);
-
-    // limit switch
-    /*if (m_limitSwitch.get()) {
-      m_armLeft.set(0);
-      m_armRight.set(0);
-    }*/
+    m_armRight.setVoltage(output + feedforward);
   }
 
   @Override
@@ -140,11 +135,9 @@ public class Arm extends ProfiledPIDSubsystem {
 
   @Override
   public void simulationPeriodic() {
-    m_ArmSim.setInputVoltage(m_armLeft.get() * RobotController.getInputVoltage());
+    m_ArmSim.setInputVoltage(m_commanded);
     m_ArmSim.update(.020);
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
-    m_arm.setAngle(Units.degreesToRadians(m_ArmSim.getAngleRads()));
-
-    // m_arm.setAngle(45);
+    m_arm.setAngle(Units.radiansToDegrees(m_ArmSim.getAngleRads()));
   }
 }
