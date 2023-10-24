@@ -76,7 +76,6 @@ public class Arm extends ProfiledPIDSubsystem {
 
     configureMotors();
 
-
     m_relativeEncoder.reset();
     m_relativeEncoder.setDistancePerPulse(ArmConstants.reletiveEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
@@ -120,7 +119,6 @@ public class Arm extends ProfiledPIDSubsystem {
     m_armLeft.setVoltage(output + feedforward);
     m_armRight.setInverted(true);
     m_armRight.setVoltage(output + feedforward);
- 
 
     // limit switch
     /*if (m_limitSwitch.get()) {

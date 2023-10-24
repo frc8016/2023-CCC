@@ -84,7 +84,7 @@ public class RobotContainer {
                 },
                 m_Arm));
 
-      m_XboxController
+    m_XboxController
         .a()
         .onTrue(
             Commands.runOnce(
