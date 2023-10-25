@@ -119,6 +119,7 @@ public class Arm extends ProfiledPIDSubsystem {
   protected void useOutput(double output, TrapezoidProfile.State setpoint) {
     // calculate feedforward from setpoint
     double feedforward = m_ArmFeedforward.calculate(setpoint.position, setpoint.velocity);
+    System.out.println("Voltage" + output + feedforward);
     // add the feedforward to the PID output to get the motor output
     m_armLeft.setVoltage(output + feedforward);
     m_armRight.setInverted(true);
@@ -130,14 +131,27 @@ public class Arm extends ProfiledPIDSubsystem {
       m_armRight.set(0);
     }*/
   }
+  @Override
+  public void periodic() {
+    System.out.println("Angle" + m_relativeEncoder.getDistance() * 3/10 + m_relativeOffsetRadians);
+    System.out.println("Absolute angle" + m_absoluteEncoder.getDistance());
+
+    if(!m_limitSwitch.get()){
+      m_relativeEncoder.reset();
+      m_absoluteEncoder.reset();
+    }
+  }
 
   @Override
   protected double getMeasurement() {
+   
 
     SmartDashboard.putData("Arm PID", getController());
     SmartDashboard.putNumber("Arm Position", m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
     return m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians;
+    
   }
+
 
   @Override
   public void simulationPeriodic() {
