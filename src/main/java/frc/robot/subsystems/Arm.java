@@ -44,7 +44,7 @@ public class Arm extends ProfiledPIDSubsystem {
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
-          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, 2, true);
+          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset,  Math.PI *2, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
@@ -65,7 +65,7 @@ public class Arm extends ProfiledPIDSubsystem {
 
   private final ArmFeedforward m_ArmFeedforward =
       new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
-  public Command setIdleMode;
+  
 
   public Arm() {
     super(
@@ -125,18 +125,16 @@ public class Arm extends ProfiledPIDSubsystem {
     m_armRight.setInverted(true);
     m_armRight.setVoltage(output + feedforward);
 
-    // limit switch
-    /*if (m_limitSwitch.get()) {
-      m_armLeft.set(0);
-      m_armRight.set(0);
-    }*/
+   
   }
+
+
   @Override
   public void periodic() {
     System.out.println("Angle" + m_relativeEncoder.getDistance() * 3/10 + m_relativeOffsetRadians);
     System.out.println("Absolute angle" + m_absoluteEncoder.getDistance());
 
-    if(!m_limitSwitch.get()){
+    if(m_limitSwitch.get()){
       m_relativeEncoder.reset();
       m_absoluteEncoder.reset();
     }
@@ -144,8 +142,6 @@ public class Arm extends ProfiledPIDSubsystem {
 
   @Override
   protected double getMeasurement() {
-   
-
     SmartDashboard.putData("Arm PID", getController());
     SmartDashboard.putNumber("Arm Position", m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
     return m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians;
