@@ -135,8 +135,8 @@ public class Arm extends ProfiledPIDSubsystem {
   protected double getMeasurement() {
 
     SmartDashboard.putData("Arm PID", getController());
-    SmartDashboard.putNumber("Arm Position", m_relativeEncoder.getDistance() * 3 / 10);
-    return m_relativeEncoder.getDistance() * 3 / 10;
+    SmartDashboard.putNumber("Arm Position", m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
+    return m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians;
   }
 
   @Override
