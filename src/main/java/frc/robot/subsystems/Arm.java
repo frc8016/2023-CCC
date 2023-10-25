@@ -21,7 +21,6 @@ import edu.wpi.first.wpilibj.smartdashboard.MechanismRoot2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj.util.Color8Bit;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ProfiledPIDSubsystem;
 import frc.robot.Constants.ArmConstants;
 
@@ -44,7 +43,7 @@ public class Arm extends ProfiledPIDSubsystem {
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
       new SingleJointedArmSim(
-          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset,  Math.PI *2, true);
+          DCMotor.getNEO(2), 60 / 18, 0.58, 0.5844, ArmConstants.kAngleOfOffset, Math.PI * 2, true);
 
   private final EncoderSim m_relativEncoderSim = new EncoderSim(m_relativeEncoder);
 
@@ -65,7 +64,6 @@ public class Arm extends ProfiledPIDSubsystem {
 
   private final ArmFeedforward m_ArmFeedforward =
       new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
-  
 
   public Arm() {
     super(
@@ -79,7 +77,8 @@ public class Arm extends ProfiledPIDSubsystem {
 
     configureMotors();
 
-    // m_relativeEncoder.reset();
+    m_relativeEncoder.reset();
+    m_absoluteEncoder.reset();
     m_relativeEncoder.setDistancePerPulse(ArmConstants.relativeEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
     m_relativeOffsetRadians = ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance();
@@ -124,30 +123,24 @@ public class Arm extends ProfiledPIDSubsystem {
     m_armLeft.setVoltage(output + feedforward);
     m_armRight.setInverted(true);
     m_armRight.setVoltage(output + feedforward);
-
-   
   }
-
 
   @Override
   public void periodic() {
-    System.out.println("Angle" + m_relativeEncoder.getDistance() * 3/10 + m_relativeOffsetRadians);
+    System.out.println(
+        "Angle" + m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
     System.out.println("Absolute angle" + m_absoluteEncoder.getDistance());
 
-    if(m_limitSwitch.get()){
-      m_relativeEncoder.reset();
-      m_absoluteEncoder.reset();
-    }
+    
   }
 
   @Override
   protected double getMeasurement() {
     SmartDashboard.putData("Arm PID", getController());
-    SmartDashboard.putNumber("Arm Position", m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
+    SmartDashboard.putNumber(
+        "Arm Position", m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
     return m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians;
-    
   }
-
 
   @Override
   public void simulationPeriodic() {

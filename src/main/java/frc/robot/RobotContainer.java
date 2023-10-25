@@ -7,14 +7,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.ShooterConstants;
-import frc.robot.commands.Autos;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -70,7 +68,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 8);
+                  m_Arm.setGoal(Math.PI / 2);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -80,7 +78,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 3);
+                  m_Arm.setGoal(Math.PI / 4);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -90,7 +88,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 2);
+                  m_Arm.setGoal(Math.PI / 3);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -100,7 +98,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 4);
+                  m_Arm.setGoal(Math.PI);
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -151,8 +149,6 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     return null;
     // An example command will be run in autonomous
-    
-
 
   }
 }
