@@ -9,6 +9,7 @@ import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotController;
@@ -38,7 +39,7 @@ public class Arm extends ProfiledPIDSubsystem {
       new DutyCycleEncoder(ArmConstants.ABSOLUTE_ENCODER_PORT);
 
   // Limit Switches
-  // private final DigitalInput m_limitSwitch = new DigitalInput(0);
+  private final DigitalInput m_limitSwitch = new DigitalInput(0);
 
   // Simulation classes
   private SingleJointedArmSim m_ArmSim =
@@ -64,7 +65,7 @@ public class Arm extends ProfiledPIDSubsystem {
 
   private final ArmFeedforward m_ArmFeedforward =
       new ArmFeedforward(ArmConstants.ks, ArmConstants.kg, ArmConstants.kv, ArmConstants.ka);
-public Command setIdleMode;
+  public Command setIdleMode;
 
   public Arm() {
     super(
@@ -78,7 +79,7 @@ public Command setIdleMode;
 
     configureMotors();
 
-    m_relativeEncoder.reset();
+    // m_relativeEncoder.reset();
     m_relativeEncoder.setDistancePerPulse(ArmConstants.relativeEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
     m_relativeOffsetRadians = ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance();
@@ -91,8 +92,7 @@ public Command setIdleMode;
     m_armLeft.restoreFactoryDefaults();
     m_armRight.restoreFactoryDefaults();
 
-
-     if (m_armLeft.setIdleMode(IdleMode.kBrake) != REVLibError.kOk) {
+    if (m_armLeft.setIdleMode(IdleMode.kBrake) != REVLibError.kOk) {
       System.out.println("ERROR while setting Left arm motor to Brake Mode");
     }
     if (m_armRight.setIdleMode(IdleMode.kBrake) != REVLibError.kOk) {
@@ -103,7 +103,6 @@ public Command setIdleMode;
     m_armLeft.burnFlash();
     m_armRight.burnFlash();
   }
-
 
   // runs arm with feedforward control
   public void set(double speed) {
@@ -136,9 +135,8 @@ public Command setIdleMode;
   protected double getMeasurement() {
 
     SmartDashboard.putData("Arm PID", getController());
-    SmartDashboard.putNumber(
-        "Arm Position", m_relativeEncoder.getDistance() * 3/10);
-    return m_relativeEncoder.getDistance() * 3/10;
+    SmartDashboard.putNumber("Arm Position", m_relativeEncoder.getDistance() * 3 / 10);
+    return m_relativeEncoder.getDistance() * 3 / 10;
   }
 
   @Override
@@ -147,7 +145,5 @@ public Command setIdleMode;
     m_ArmSim.update(.020);
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
     m_arm.setAngle(Units.degreesToRadians(m_ArmSim.getAngleRads()));
-
-   
   }
 }

@@ -58,16 +58,16 @@ public final class Constants {
     public static final double dutyCycleEncoderDistancePerRotation = 2 * Math.PI;
 
     public static final double kp = 0;
-    public static final double ki = 0;
+    public static final double ki = 0.;
     public static final double kd = 0;
 
     public static final double kMaxVelocityRadPerSecond = Math.PI / 4;
     public static final double kMaxAccelerationRadPerSecondSquared = 1;
     public static final double kAngleOfOffset = -0.526338943;
 
-    public static final double ks = 0.76282;
-    public static final double kv = 0.003579;
-    public static final double ka = 0.10815;
-    public static final double kg = 0.69267;
+    public static final double ks = 0.16993;
+    public static final double kv = 3;
+    public static final double ka = 0.0094614;
+    public static final double kg = 0.15;
   }
 }
