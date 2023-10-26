@@ -147,8 +147,8 @@ public class Arm extends ProfiledPIDSubsystem {
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
     m_arm.setAngle(Units.degreesToRadians(m_ArmSim.getAngleRads()));
   }
-
-
+}
+/* 
    @Override
    public void periodic(){
      if(m_limitSwitch.get()){
@@ -163,5 +163,5 @@ public class Arm extends ProfiledPIDSubsystem {
      System.out.println("angle: " + m_relativeEncoder.getDistance());
      System.out.println("absolute angle: " + (ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance()));
    }
-  }
+  }*/
   
