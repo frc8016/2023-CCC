@@ -32,7 +32,7 @@ public class Arm extends ProfiledPIDSubsystem {
       new CANSparkMax(ArmConstants.rightArmMotorID, MotorType.kBrushless);
 
   // encoders
-  private final Encoder m_relativeEncoder =
+  public final Encoder m_relativeEncoder =
       new Encoder(ArmConstants.RELATIVE_ENCODER_A, ArmConstants.RELATIVE_ENCODER_B);
   private final DutyCycleEncoder m_absoluteEncoder =
       new DutyCycleEncoder(ArmConstants.ABSOLUTE_ENCODER_PORT);
@@ -78,7 +78,6 @@ public class Arm extends ProfiledPIDSubsystem {
     configureMotors();
 
     m_relativeEncoder.reset();
-    m_absoluteEncoder.reset();
     m_relativeEncoder.setDistancePerPulse(ArmConstants.relativeEncoderDistancePerPulse);
     m_absoluteEncoder.setDistancePerRotation(ArmConstants.dutyCycleEncoderDistancePerRotation);
     m_relativeOffsetRadians = ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance();
@@ -114,28 +113,27 @@ public class Arm extends ProfiledPIDSubsystem {
     return m_absoluteEncoder.getDistance();
   }
 
+  
+  
   @Override
   protected void useOutput(double output, TrapezoidProfile.State setpoint) {
+    System.out.println("angle" + m_relativeEncoder.getDistance());
+    System.out.println("absolute angle" + m_absoluteEncoder.getDistance());
     // calculate feedforward from setpoint
     double feedforward = m_ArmFeedforward.calculate(setpoint.position, setpoint.velocity);
+
     System.out.println("Voltage" + output + feedforward);
     // add the feedforward to the PID output to get the motor output
     m_armLeft.setVoltage(output + feedforward);
     m_armRight.setInverted(true);
     m_armRight.setVoltage(output + feedforward);
-  }
 
-  @Override
-  public void periodic() {
-    System.out.println(
-        "Angle" + m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
-    System.out.println("Absolute angle" + m_absoluteEncoder.getDistance());
-
+   
     
   }
 
   @Override
-  protected double getMeasurement() {
+  public double getMeasurement() {
     SmartDashboard.putData("Arm PID", getController());
     SmartDashboard.putNumber(
         "Arm Position", m_relativeEncoder.getDistance() * 3 / 10 + m_relativeOffsetRadians);
@@ -149,4 +147,21 @@ public class Arm extends ProfiledPIDSubsystem {
     m_relativEncoderSim.setDistance(m_ArmSim.getAngleRads());
     m_arm.setAngle(Units.degreesToRadians(m_ArmSim.getAngleRads()));
   }
-}
+
+
+   @Override
+   public void periodic(){
+     if(m_limitSwitch.get()){
+      // m_relativeEncoder.reset();
+     //  m_absoluteEncoder.reset();
+       System.out.println("limit switch activated");
+
+     }
+     
+     
+
+     System.out.println("angle: " + m_relativeEncoder.getDistance());
+     System.out.println("absolute angle: " + (ArmConstants.kAngleOfOffset - m_absoluteEncoder.getDistance()));
+   }
+  }
+  

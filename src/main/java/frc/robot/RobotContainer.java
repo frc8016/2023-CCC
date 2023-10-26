@@ -15,7 +15,6 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
 
 /*
@@ -26,7 +25,7 @@ import frc.robot.subsystems.Shooter;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+
   private final DriveTrain m_DriveTrain = new DriveTrain();
 
   private final Joystick m_Joystick = new Joystick(0);
@@ -68,7 +67,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 2);
+                  m_Arm.setGoal(Math.PI / 2 - m_Arm.getMeasurement());
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -78,7 +77,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 4);
+                  m_Arm.setGoal(Math.PI / 4 - m_Arm.getMeasurement());
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -88,7 +87,7 @@ public class RobotContainer {
         .onTrue(
             Commands.runOnce(
                 () -> {
-                  m_Arm.setGoal(Math.PI / 3);
+                  m_Arm.setGoal(Math.PI / 8 - m_Arm.getMeasurement());
                   m_Arm.enable();
                 },
                 m_Arm));
@@ -102,8 +101,6 @@ public class RobotContainer {
                   m_Arm.enable();
                 },
                 m_Arm));
-
-    // shooter
 
     // intake cube
     m_XboxController

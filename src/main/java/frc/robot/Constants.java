@@ -63,7 +63,7 @@ public final class Constants {
 
     public static final double kMaxVelocityRadPerSecond = Math.PI / 4;
     public static final double kMaxAccelerationRadPerSecondSquared = 1;
-    public static final double kAngleOfOffset = -0.526338943;
+    public static final double kAngleOfOffset = 0;
 
     public static final double ks = 0.16993;
     public static final double kv = 3;
