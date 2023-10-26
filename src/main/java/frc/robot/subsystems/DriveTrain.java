@@ -1,38 +1,31 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import edu.wpi.first.wpilibj.Joystick;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.DriveTrainConstants;
 
 public class DriveTrain extends SubsystemBase {
-  /** Creates a new DriveBase. */
-  public DriveTrain() {
-    MotorController m_frontLeft = new WPI_VictorSPX(7);
-    MotorController m_backLeft = new WPI_VictorSPX(6);
-    MotorController m_frontRight = new WPI_VictorSPX(8);
-    MotorController m_backRight = new WPI_VictorSPX(5);
+  private CANSparkMax m_frontLeft =
+      new CANSparkMax(DriveTrainConstants.frontLeftMotorID, MotorType.kBrushless);
+  private CANSparkMax m_backLeft =
+      new CANSparkMax(DriveTrainConstants.backLeftMotorID, MotorType.kBrushless);
+  private CANSparkMax m_frontRight =
+      new CANSparkMax(DriveTrainConstants.frontRightMotorID, MotorType.kBrushless);
+  private CANSparkMax m_backRight =
+      new CANSparkMax(DriveTrainConstants.backRightMotorID, MotorType.kBrushless);
 
-    MotorControllerGroup m_left = new MotorControllerGroup(m_frontLeft, m_backLeft);
-    MotorControllerGroup m_right = new MotorControllerGroup(m_frontRight, m_backRight);
+  private MotorControllerGroup m_leftGroup = new MotorControllerGroup(m_frontLeft, m_backLeft);
+  private MotorControllerGroup m_rightGroup = new MotorControllerGroup(m_frontRight, m_backRight);
 
-    DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_right);
+  private DifferentialDrive driveSystem = new DifferentialDrive(m_leftGroup, m_rightGroup);
 
-    Joystick m_controller = new Joystick(0);
-  }
+  public void arcadeDrive(double speed, double rotation) {
+    driveSystem.arcadeDrive(-speed, -rotation);
 
-  /* (non-Javadoc)
-   * @see edu.wpi.first.wpilibj2.command.Subsystem#periodic()
-   */
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-    DifferentialDrive.arcadeDriveIK(0, 0, false);
+    m_leftGroup.setInverted(true);
+    m_rightGroup.setInverted(false);
   }
 }
